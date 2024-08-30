@@ -1,0 +1,20 @@
+﻿@model WebApplication1.Models.MyViewModel
+
+<form asp-action="GetMigration" method="post">
+    <label>
+        <input type="checkbox" id="deleteToggle" />
+        Enable Delete
+    </label>
+
+    @Html.HiddenFor(model => model.IsDeleteEnable, new { id = "IsDeleteEnable" })
+
+    <button type="submit">Submit</button>
+</form>
+
+@section Scripts {
+    <script>
+        $('#deleteToggle').change(function() {
+            $('#IsDeleteEnable').val(this.checked ? 'true' : 'false');
+        });
+    </script>
+}
